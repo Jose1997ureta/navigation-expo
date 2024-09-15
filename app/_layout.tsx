@@ -32,11 +32,9 @@ export default function RootLayout() {
 	}
 
 	return (
-		<SafeAreaProvider>
+		<ThemeProvider value={DefaultTheme}>
 			<StatusBar barStyle={"light-content"} backgroundColor={"orange"} />
-			<ThemeProvider value={DefaultTheme}>
-				<App />
-			</ThemeProvider>
-		</SafeAreaProvider>
+			<App />
+		</ThemeProvider>
 	);
 }

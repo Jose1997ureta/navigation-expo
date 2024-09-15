@@ -1,4 +1,5 @@
-import { Href, Link } from "expo-router";
+import { Button } from "@/components/button";
+import { Href, useNavigation, useRouter } from "expo-router";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
 
 const { width } = Dimensions.get("window");
@@ -8,27 +9,50 @@ const itemWidth = (width - 42) / numColumns;
 const Rutas = [
 	{
 		id: "1",
-		name: "Abrir Home 2",
+		name: "Abrir Otros",
 		pathName: "/home2",
 	},
+
 	{
 		id: "2",
-		name: "Abrir News",
-		pathName: "/news",
+		name: "Abrir Tab",
+		pathName: "/(home)/(tabs)/config",
 	},
 	{
 		id: "3",
-		name: "Abrir Tab",
-		pathName: "/(tabs)",
+		name: "Abrir Drawer",
+		pathName: "/(home)/(drawer)/home",
 	},
 	{
 		id: "4",
-		name: "Abrir Drawer",
-		pathName: "/(drawer)",
+		name: "Abrir Drawer y Tab",
+		pathName: "/(news)/(drawer)/news1",
+	},
+	{
+		id: "5",
+		name: "Pasar Parametros Navigation",
+		pathName: "/JoseAntonio",
+	},
+	{
+		id: "6",
+		name: "Abrir Modal Screen",
+		pathName: "/(modal)/user-modal",
 	},
 ] as { id: string; name: string; pathName: Href<string | object> }[];
 
 export default function Home() {
+	const router = useRouter();
+	const navigation = useNavigation();
+
+	const handleNavigation = (href: any) => {
+		router.navigate({
+			pathname: href,
+			params: {
+				name: "Antonio",
+			},
+		});
+	};
+
 	return (
 		<View style={style.container}>
 			<Text style={style.title}>Rutas</Text>
@@ -39,17 +63,15 @@ export default function Home() {
 						Math.ceil((i + 1) / numColumns) ===
 						Math.ceil(Rutas.length / numColumns);
 					return (
-						<Link
+						<Button
 							key={el.id}
 							style={[
-								style.link,
 								{ width: itemWidth },
 								!isLastRow ? { marginBottom: 10 } : undefined,
 							]}
-							href={el.pathName}
-						>
-							{el.name}
-						</Link>
+							onPress={() => handleNavigation(el.pathName)}
+							text={el.name}
+						/>
 					);
 				})}
 			</View>
@@ -73,13 +95,5 @@ const style = StyleSheet.create({
 		flexDirection: "row",
 		flexWrap: "wrap",
 		justifyContent: "space-between",
-	},
-	link: {
-		color: "white",
-		backgroundColor: "tomato",
-		padding: 8,
-		borderRadius: 6,
-		fontSize: 12,
-		fontWeight: "500",
 	},
 });

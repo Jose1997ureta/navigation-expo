@@ -1,13 +1,13 @@
+import { FontAwesome } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 
-export default function Home2Layout() {
+export default function TabNewLayout() {
 	return (
-		<Tabs initialRouteName="config">
+		<Tabs initialRouteName="news1" screenOptions={{ headerShown: false }}>
 			<Tabs.Screen
-				name="config"
+				name="news1"
 				options={{
-					title: "Config",
+					title: "News 1",
 					tabBarIcon: ({ focused, size }) =>
 						focused ? (
 							<FontAwesome name="home" color={"blue"} size={size} />
@@ -17,9 +17,9 @@ export default function Home2Layout() {
 				}}
 			/>
 			<Tabs.Screen
-				name="perfil"
+				name="news2"
 				options={{
-					title: "Perfil",
+					title: "News 2",
 
 					tabBarIcon: ({ focused, size }) =>
 						focused ? (

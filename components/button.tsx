@@ -1,26 +1,29 @@
 import {
 	GestureResponderEvent,
 	Pressable,
+	StyleProp,
 	StyleSheet,
 	Text,
+	ViewStyle,
 } from "react-native";
 
 interface Props {
 	text: string;
 	onPress: (event: GestureResponderEvent) => void;
+	style?: StyleProp<ViewStyle>;
 }
 
-export const Button = ({ onPress, text }: Props) => {
+export const Button = ({ onPress, text, style }: Props) => {
 	return (
-		<Pressable onPress={onPress} style={style.button}>
-			<Text style={style.text}>{text}</Text>
+		<Pressable onPress={onPress} style={[styled.button, style]}>
+			<Text style={styled.text}>{text}</Text>
 		</Pressable>
 	);
 };
 
-const style = StyleSheet.create({
+const styled = StyleSheet.create({
 	button: {
-		backgroundColor: "skyblue",
+		backgroundColor: "tomato",
 		paddingHorizontal: 12,
 		paddingVertical: 8,
 		borderRadius: 6,

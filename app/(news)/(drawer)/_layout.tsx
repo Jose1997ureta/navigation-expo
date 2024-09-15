@@ -1,24 +1,11 @@
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-export default function DrawerLayout() {
+export default function DrawerNewsLayout() {
 	return (
 		<GestureHandlerRootView style={{ flex: 1 }}>
 			<Drawer>
-				<Drawer.Screen
-					name="index"
-					options={{
-						title: "Listado de News",
-						drawerLabel: "Home",
-					}}
-				/>
-				<Drawer.Screen
-					name="detail"
-					options={{
-						title: "Detalle",
-						drawerLabel: "Detail",
-					}}
-				/>
+				<Drawer.Screen name="(tabs)" />
 			</Drawer>
 		</GestureHandlerRootView>
 	);
