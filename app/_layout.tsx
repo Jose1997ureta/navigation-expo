@@ -4,8 +4,6 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 
-import { SafeAreaProvider } from "react-native-safe-area-context";
-
 import App from "./app";
 import { StatusBar } from "react-native";
 

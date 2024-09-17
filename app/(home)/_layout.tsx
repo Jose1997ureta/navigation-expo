@@ -12,11 +12,11 @@ export default function HomeLayout() {
 			<Stack.Screen name="[id]" />
 			<Stack.Screen
 				name="(modal)/user-modal"
-				options={{ presentation: "transparentModal" }}
+				options={{ presentation: "modal" }}
 			/>
 			<Stack.Screen
 				name="(modal)/user-modal-2"
-				options={{ presentation: "transparentModal" }}
+				options={{ presentation: "modal" }}
 			/>
 		</Stack>
 	);

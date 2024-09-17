@@ -63,8 +63,9 @@ export default function Home2() {
 const styled = StyleSheet.create({
 	container: {
 		flex: 1,
+		backgroundColor: "yellow",
 		paddingHorizontal: 16,
-		paddingVertical: 16,
+		// paddingVertical: 16,
 	},
 	title: {
 		fontSize: 18,

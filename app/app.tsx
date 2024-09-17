@@ -10,11 +10,17 @@ export const unstable_settings = {
 export default function App() {
 	const inset = useSafeAreaInsets();
 
+	/* Esto se coloca por cada pantalla no deberia envolver a un stack */
 	return (
 		<View
 			style={{ flex: 1, paddingTop: inset.top, paddingBottom: inset.bottom }}
 		>
-			<Stack screenOptions={{ headerShown: false }} initialRouteName="(home)">
+			<Stack
+				screenOptions={{
+					headerShown: false,
+				}}
+				initialRouteName="(home)"
+			>
 				<Stack.Screen name="(home)" />
 				<Stack.Screen name="(news)" />
 				<Stack.Screen name="+not-found" />
